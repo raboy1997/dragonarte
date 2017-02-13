@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :users do
+    get 'omniauth_callbacks/facebook'
+  end
+
+  namespace :users do
+    get 'omniauth_callbacks/vkontakte'
+  end
+
+  devise_for :users, :controllers => { registrations: 'registrations' } do
+    match 'users/sign_out' => "devise/sessions#destroy"
+
+  end
+
+  root "static_pages#index"
+
 end

@@ -1,0 +1,22 @@
+<div class="header">
+  <div class="container">
+    <div class="logo">
+      <h1><a><%= link_to 'Dragonarte' , root_path%></a></h1>
+    </div>
+    <div class="top_right">
+      <ul>
+        <% if user_signed_in? %>
+            <li class="active">  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+        <% else %>
+            <li><a> <%= link_to 'Register' , new_user_registration_path %></a></li>|
+            <li class="login" >
+              <div id="loginContainer"><a id="loginButton"><%= link_to 'Login' , new_user_session_path %></a>
+              </div>
+            </li>
+        <% end %>
+
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
