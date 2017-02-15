@@ -23,6 +23,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-vkontakte'
 gem 'haml'
+gem "paperclip", "~> 5.0.0"
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
