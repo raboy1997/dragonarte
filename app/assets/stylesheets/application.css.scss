@@ -1865,7 +1865,7 @@ ul.plan-details{
     }
 }
 
-/// divice
+/// devise
 
   #user_email , #user_password , #user_password_confirmation {
     border: 1px solid #EEE;
@@ -1900,3 +1900,50 @@ ul.plan-details{
     -o-border-radius:2px;
     -ms-border-radius:2px;
   }
+
+
+///// download img
+
+
+.img_download {
+  margin-top: 5.7%;
+  margin-bottom: 6%;
+  display: block;
+}
+
+.img_block {
+  margin-top: 5.7%;
+  margin-bottom: 6%;
+  text-align: center;
+}
+
+.img_block img {
+  border-radius:10px ;
+
+}
+
+.img_download ul {
+  list-style-type: none;
+}
+
+.img_download li {
+  margin-top: 2%;
+}
+
+/* Для небольших устройств (смартфоны) */
+.img_block img {
+  max-width: 100%;
+  display: inline-block;
+}
+/* Для средних устройств (планшеты) */
+@media (min-width: 420px) {
+  .img_block img {
+    max-width: 48%;
+  }
+}
+/* Для больших устройств (ноуты, пк) */
+@media (min-width: 760px) {
+  .img_block img {
+    max-width: 70%;
+  }
+}

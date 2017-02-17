@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="img_download">
+
+  <%= form_for @image , html: { multipart: true } do |form| %>
+      <ul>
+        <li><%= form.file_field :img %></li>
+        <li><%= form.submit "Send" , :class => 'regestration_input' %></li>
+      </ul>
+  <% end %>
+    </div>
+</div>
