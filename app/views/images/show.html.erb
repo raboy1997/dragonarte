@@ -1,5 +1,7 @@
 <div class="container">
   <div class="img_block">
+
+    <h3><%= @image.description %></h3> <br>
     <%= image_tag @image.img.url %>
-  </div>
+    <p>Tags: <%= raw(@image.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></p>  </div>
 </div>
