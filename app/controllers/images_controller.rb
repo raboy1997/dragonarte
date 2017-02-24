@@ -3,6 +3,24 @@ class ImagesController < ApplicationController
     @image = Image.new
   end
 
+  def index
+    if params[:tag]
+      @images = Image.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 6)
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @images }
+        format.js
+      end
+    else
+      @images = Image.paginate(:page => params[:page], :per_page => 6)
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @images}
+        format.js
+      end
+    end
+  end
+
   def create
     @image = Image.new(image_params)
     @image.save
@@ -19,6 +37,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:img)
+    params.require(:image).permit(:img  , :description , :tag_list )
   end
 end

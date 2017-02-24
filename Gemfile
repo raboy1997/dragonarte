@@ -25,7 +25,7 @@ gem 'omniauth-vkontakte'
 gem 'haml'
 gem "paperclip", "~> 5.0.0"
 gem 'acts-as-taggable-on'
-
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri

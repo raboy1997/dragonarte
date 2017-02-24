@@ -1,0 +1,33 @@
+<div class="banner">
+  <div class="container">
+    <div class="span_1_of_1">
+      <h2> <br><br> </h2>
+      <div class="search">
+        <ul class="nav1">
+          <li id="search">
+            <form action="" method="get">
+              <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+              <input type="button" name="search_button" id="search_button">
+            </form>
+          </li>
+          <li id="options">
+            <a href="#">All Images</a>
+            <ul class="subnav">
+              <li><a href="#">Photography</a></li>
+              <li><a href="#">Illustrations</a></li>
+              <li><a href="#">Vector</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid_1">
+  <h3>Over 42 Million Stock Images, Vectors, Footage and Audio Clips</h3>
+
+  <div id="images">
+    <%= render "images/image" %>
+  </div>
+
+</div>

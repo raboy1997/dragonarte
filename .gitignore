@@ -17,6 +17,7 @@
 .byebug_history
 /log/
 /config/database.yml
-/config/secrets.yml
+
 /tmp/
 .idea/
+/public/system/
