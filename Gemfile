@@ -26,6 +26,8 @@ gem 'haml'
 gem "paperclip", "~> 5.0.0"
 gem 'acts-as-taggable-on'
 gem 'will_paginate'
+gem 'ajax_pagination'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
