@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+
+    $("#images_search input").keyup(function() {
+        $.get($("#images_search").attr("action"), $("#images_search").serialize(), null, "script");
+        return false;
+    });
+});
