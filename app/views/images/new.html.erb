@@ -6,6 +6,7 @@
         <li><%= form.file_field :img %></li>
         <li><%= form.text_area :description %></li>
         <li><%= form.text_field :tag_list %></li>
+        <li><%= form.collection_select :category_id, Category.all, :id, :name, { promt: "Choose a Category" } %></li>
         <li><%= form.submit "Send" , :class => 'regestration_input' %></li>
       </ul>
   <% end %>

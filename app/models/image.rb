@@ -3,6 +3,7 @@ class Image < ApplicationRecord
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   acts_as_taggable
+  belongs_to :category
 
   def self.search(search)
     if search

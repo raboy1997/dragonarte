@@ -5,21 +5,21 @@ class ImagesController < ApplicationController
 
   def index
   @images = Image
-    if params[:tag]
+    if params[:tag] && params[:categories].blank?
       @images = Image.tagged_with(params[:tag]).paginate(:order =>"name ASC" ,:page => params[:page], :per_page => 6).search(params[:search])
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @images }
         format.js
-        ajax_respond format, :section_id => "image"
       end
     else
-      @images = Image.paginate(:page => params[:page], :per_page => 6).search(params[:search])
+      @images = Image.paginate(:page => params[:page], :per_page => 6).search(params[:search]).where(category_id: @category_id)
+      @category_id = Category.find_by(name: params[:category_id])
+
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @images}
         format.js
-        ajax_respond format, :section_id => "image"
       end
     end
   end
@@ -30,6 +30,9 @@ class ImagesController < ApplicationController
     if @image.save
       flash[:notice] = "Image add on site when the administrator approves this photo "
       redirect_to @image
+    else
+      flash[:notice] = "Image dont add on site "
+
     end
   end
 
@@ -40,6 +43,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:img  , :description , :tag_list )
+    params.require(:image).permit(:img  , :description , :tag_list , :category_id )
   end
 end

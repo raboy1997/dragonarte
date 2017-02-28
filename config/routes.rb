@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "images#index"
   resources  :images
+  resources :categories
   post '/images/new' , to: 'images#new'
   get 'tags/:tag', to: 'images#index', as: :tag
 
