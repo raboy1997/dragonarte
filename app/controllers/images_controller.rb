@@ -4,9 +4,8 @@ class ImagesController < ApplicationController
   end
 
   def index
-  @images = Image
     if params[:tag] && params[:categories].blank?
-      @images = Image.tagged_with(params[:tag]).paginate(:order =>"name ASC" ,:page => params[:page], :per_page => 6).search(params[:search])
+      @images = Image.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 6).search(params[:search])
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @images }
@@ -36,9 +35,14 @@ class ImagesController < ApplicationController
     end
   end
 
+  def search
+    @images = Image.where(description: params[:search] , category_id: params[:category].to_i)
+  end
+
   def show
     @image = Image.find(params[:id])
   end
+
 
   private
 

@@ -5,10 +5,13 @@
       <div class="search">
         <ul class="nav1">
           <li id="search">
-            <form accept-charset="UTF-8" action="/images" method="get">
-                <input id="search_text" name="search" type="text" placeholder="Search" />
-              <input type="submit" name="search_button" value= "" id="search_button"/>
-            </form>
+            <%= form_tag  images_search_path, :method => 'get' do %>
+                <%= text_field_tag :search, params[:search]%>
+                <%= select_tag :category, options_for_select(Category.all.map{|c| [c.name, c.id]}) %>
+                <%= submit_tag 'Search' %>
+            <% end %>
+
+
           </li>
           <li id="options">
             <a href="#">All Images</a>
