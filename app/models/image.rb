@@ -3,10 +3,12 @@ class Image < ApplicationRecord
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   acts_as_taggable
+  belongs_to :category
 
-  def self.search(search)
-    if search
-      where('images.description LIKE ?', "%#{search}%")
+  def self.search(params)
+    if params
+      where(category_id: params[:category].to_i)
+      where("description LIKE ?", params[:search]) if params[:search].present?
     else
       all
     end

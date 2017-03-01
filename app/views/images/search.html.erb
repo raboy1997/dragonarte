@@ -1,0 +1,9 @@
+<div class="listing">
+  <% @images.each do |image| %>
+      <div class="col-md-2 col_1">
+        <%= image_tag image.img.url , :class=> 'img_index' %>
+      </div>
+  <% end %>
+</div>
+
+<div class="clearfix"></div>
